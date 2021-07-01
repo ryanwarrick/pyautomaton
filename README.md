@@ -13,15 +13,16 @@ For example...
 Whenever human workloads begin to resemble the functionality of a webhooks or browser macros, those tasks may be due for an injection of automation efforts to reduce long-term human time costs.
 
 To pay respects to the topic of automation, I must acknowledge its potential pitfalls including improper project scoping, over-engineering, and code fragility leading to increased development time. My goal is for this project to serve as a learning opportunity so that I can improve the value proposition of my BPA efforts and overcome the common automation pitfalls. I'd be  remiss of me to not include this XKCD comic commenting on these very pitfalls and their effects:
-# <img alt="XKCD #1319 - Automation" src="https://imgs.xkcd.com/comics/automation.png" height="250">
+<img alt="XKCD #1319 - Automation" src="https://imgs.xkcd.com/comics/automation.png" height="250">
 
 
 <div align="center">
     ![license](https://img.shields.io/github/license/ryanwarrick/pyautomaton)
+    
     ![GitHub last commit](https://img.shields.io/github/last-commit/ryanwarrick/pyautomaton)
     [![GitHub issues](https://img.shields.io/github/issues/ryanwarrick/pyautomaton)](https://github.com/ryanwarrick/pyautomaton/issues)
     ![PyPI](https://img.shields.io/pypi/v/pyautomaton)
-    /[![code with hearth by GITHUB_USERNAME](https://img.shields.io/badge/%3C%2F%3E%20with%20%E2%99%A5%20by-ryanwarrick-ff1414.svg?style=flat-square)](https://github.com/ryanwarrick)
+    /[![code with hearth by ryanwarrick](https://img.shields.io/badge/%3C%2F%3E%20with%20%E2%99%A5%20by-ryanwarrick-ff1414.svg?style=flat-square)](https://github.com/ryanwarrick)
 </div>
   
 ## Installation
