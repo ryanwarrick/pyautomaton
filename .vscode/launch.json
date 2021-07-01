@@ -1,0 +1,41 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    // For docs on input variables, see: https://code.visualstudio.com/docs/editor/variables-reference
+    "version": "0.2.0",
+    "configurations": [
+        { // CONFIG 01) Function: ASDF
+            // Standard debug config ran from prj root (workspaceFolder)
+            "name": "Function: ASDF",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}${pathSeparator}src${pathSeparator}pyautomaton${pathSeparator}__main__.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            // Passing config & function specific args
+            "args": [
+                "${input:pickConfigFile}", // Pass configured ini file.
+            ]
+        }
+    ],
+    "inputs": [
+        {
+            "id": "pickConfigFile",
+            "description": "Select config file to be used by the script.",
+            "type": "pickString",
+            "options": [
+                "${workspaceFolder}${pathSeparator}config_populated.ini",
+                "${workspaceFolder}${pathSeparator}config.ini",
+                "${workspaceFolder}${pathSeparator}nonexistent_config.ini",
+            ],
+            "default": "${workspaceFolder}${pathSeparator}config_populated.ini"
+        },
+        {
+            "id": "pickImportExportFilePath",
+            "description": "Provide file path for import/export file to be used by the selected script function.",
+            "type": "promptString",
+            "default": "${workspaceFolder}${pathSeparator}import_export_data.csv"
+        }
+    ]
+}
