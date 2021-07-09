@@ -1,6 +1,3 @@
-# Test config.ini file (contains sensitive credential/API info)
-config_populated.ini
-
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
@@ -63,7 +60,6 @@ __pypackages__/
 # Environments
 .env
 .venv
-.venv2
 env/
 venv/
 ENV/

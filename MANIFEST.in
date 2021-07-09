@@ -18,9 +18,6 @@ include README.md # Human-readable intro to project repo
 # Include the LICENSE file
 include LICENSE.txt # Defines boiler-plate legal code related to FOSS
 
-# Include the example config.ini file
-include config.ini
-
 ### GRAFTS ###
 # Defines directories to include (recursively)
 
