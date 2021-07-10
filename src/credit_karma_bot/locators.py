@@ -14,3 +14,8 @@ class InternalPageLocators:
         By.XPATH,
         '//*[@id = "__render-farm"]//*[@class = "credit-health"]/div[1]//*[@class = "section-content"]/div[1]/div[1]/div[1]/div[1]//*[name() = "svg"]/*[name() = "text"][position() = (last() - 1)]'
     )
+    factor_tiles = (By.CLASS_NAME, "factor-tile")
+    factor_tile_detail = {
+        'name': (By.CLASS_NAME, 'b'),
+        'value': (By.CLASS_NAME, 'f2')
+    }

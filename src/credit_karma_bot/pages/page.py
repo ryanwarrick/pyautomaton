@@ -39,6 +39,24 @@ class BasePage(object):
             self.driver.quit()
             sys.exit(1)
 
+    def fetch_elements(self, locator):
+        try:
+            elements = self.wait.until(
+                EC.presence_of_all_elements_located(locator))
+            return elements
+        except MaxRetryError as err:
+            print("Failed to find element...")
+            print(err)
+            print(err.args)
+            self.driver.quit()
+            sys.exit(1)
+        except TimeoutException as err:
+            print("Failed to find element...")
+            print(err)
+            print(err.args)
+            self.driver.quit()
+            sys.exit(1)
+
     def url(self):
         if self.page_path is not None:
             print(urljoin(self.base_url, self.page_path))

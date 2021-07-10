@@ -41,8 +41,27 @@ class InternalPage(BasePage):
     def logout_link(self):
         return self.driver.get("https://www.creditkarma.com/auth/logout/lockdown")
 
-    def score_text_alt(self):
+    def score_text(self):
         return self.fetch_element(InternalPageLocators.score_text)
+
+    def factor_tile_detail(self, index):
+        factor_tile = self.factor_tile(index)
+        factor_tile_details = {}
+        for key, value in InternalPageLocators.factor_tile_detail.items():
+            # Exception has occurred: AttributeError
+            # 'WebElement' object has no attribute 'fetch_element'
+            factor_tile_detail = factor_tile.find_element(*value)
+            factor_tile_details[key] = factor_tile_detail.text
+        return factor_tile_details
+
+    # def fetch_subelement(self, element, locator):
+    #     element.find_element(locator)
+
+    def factor_tile(self, index):
+        # TODO: Break this out and represent it in OOP form in element.py
+        factor_tile = self.fetch_elements(
+            InternalPageLocators.factor_tiles)[index]
+        return factor_tile
 
     def is_this_page(self):
         return super().is_this_page(

@@ -41,25 +41,35 @@ class Application(object):
 
     def get_credit_scores(self):
         internal_page = InternalPage(self.driver, self.wait, self.BASE_URL)
-        scores = []
+        scores = {}
         for credit_reporting_agency_name in internal_page.CREDIT_REPORTING_AGENCY_NAMES:
             internal_page.navigate_driver_to_scores_page(
                 credit_reporting_agency_name)
-            scores.append(internal_page.score_text_alt().text)
+            scores[credit_reporting_agency_name.capitalize(
+            )] = internal_page.score_text().text
         return scores
+
+    def get_credit_details(self):
+        internal_page = InternalPage(self.driver, self.wait, self.BASE_URL)
+        credit_details = {}
+        for credit_reporting_agency_name in internal_page.CREDIT_REPORTING_AGENCY_NAMES:
+            internal_page.navigate_driver_to_scores_page(
+                credit_reporting_agency_name)
+            credit_details[credit_reporting_agency_name.capitalize()] = {}
+            for factor_tile_index in range(0, 5):
+                factor_tile_detail = internal_page.factor_tile_detail(
+                    factor_tile_index)
+                credit_details[credit_reporting_agency_name.capitalize(
+                )][factor_tile_detail['name']] = factor_tile_detail['value']
+        return credit_details
 
     def logout(self):
         internal_page = InternalPage(self.driver, self.wait, self.BASE_URL)
         internal_page.logout_link()
         # ip.accept_alert_if_present()
 
-    def ensure_is_not_logged_in(self):
-        assert self.login_page.is_this_page
+    # def ensure_is_not_logged_in(self):
+    #     assert self.login_page.is_this_page
 
-    # def go_to_sign_in_form(self):
-    #     lp = self.login_page
-    #     if lp.sign_in_links:
-    #         lp.sign_in_links[0].click()
-
-    def delete_all_cookies(self):
-        self.delete_all_cookies()
+    # def delete_all_cookies(self):
+    #     self.delete_all_cookies()
