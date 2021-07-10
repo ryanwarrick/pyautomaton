@@ -2,7 +2,7 @@ import sys
 
 from selenium import webdriver
 
-from credit_karma_bot.model.application import Application as CreditKarmaApp
+from credit_karma_bot.application import Application as CreditKarmaApp
 
 
 class PyAutomatonMgr(object):

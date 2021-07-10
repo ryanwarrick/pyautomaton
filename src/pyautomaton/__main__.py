@@ -2,7 +2,6 @@ import argparse
 import sys
 
 from pyautomaton.py_automaton import PyAutomatonMgr
-from credit_karma_bot.model.application import Application as CreditKarmaApp
 
 
 def main():
