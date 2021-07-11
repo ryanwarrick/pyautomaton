@@ -1,16 +1,15 @@
 import sys
 
-from credit_karma_bot.locators import LoginPageLocators
-from credit_karma_bot.locators import InternalPageLocators
-from credit_karma_bot.pages.page import BasePage
-
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import TimeoutException
 from selenium.common.exceptions import NoAlertPresentException
 from selenium.common.exceptions import WebDriverException
+
+from credit_karma_bot.locators import LoginPageLocators
+from credit_karma_bot.locators import InternalPageLocators
+from credit_karma_bot.pages.page import BasePage
 
 
 class InternalPage(BasePage):
@@ -22,7 +21,6 @@ class InternalPage(BasePage):
 
     def __init__(self, driver, wait, base_url):
         super().__init__(driver, wait, base_url)
-        # self.page_path = InternalPage.SCORE_PAGE_PATH
 
     def navigate_driver_to_scores_page(self, credit_reporting_agency_name):
         self.page_path = self.SCORE_PAGE_PATH.format(
@@ -38,14 +36,11 @@ class InternalPage(BasePage):
             self.driver.quit()
             sys.exit(1)
 
-    def logout_link(self):
-        return self.driver.get("https://www.creditkarma.com/auth/logout/lockdown")
+    def get_score_text(self):
+        return self.fetch_element(InternalPageLocators.score_text).text
 
-    def score_text(self):
-        return self.fetch_element(InternalPageLocators.score_text)
-
-    def factor_tile_detail(self, index):
-        factor_tile = self.factor_tile(index)
+    def get_factor_tile_details(self, index):
+        factor_tile = self.get_factor_tile(index)
         factor_tile_details = {}
         for key, value in InternalPageLocators.factor_tile_detail.items():
             # Exception has occurred: AttributeError
@@ -54,14 +49,14 @@ class InternalPage(BasePage):
             factor_tile_details[key] = factor_tile_detail.text
         return factor_tile_details
 
-    # def fetch_subelement(self, element, locator):
-    #     element.find_element(locator)
-
-    def factor_tile(self, index):
+    def get_factor_tile(self, index):
         # TODO: Break this out and represent it in OOP form in element.py
         factor_tile = self.fetch_elements(
             InternalPageLocators.factor_tiles)[index]
         return factor_tile
+
+    def logout(self):
+        return self.driver.get("https://www.creditkarma.com/auth/logout/lockdown")
 
     def is_this_page(self):
         return super().is_this_page(

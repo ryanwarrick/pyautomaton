@@ -46,7 +46,7 @@ class Application(object):
             internal_page.navigate_driver_to_scores_page(
                 credit_reporting_agency_name)
             scores[credit_reporting_agency_name.capitalize(
-            )] = internal_page.score_text().text
+            )] = internal_page.get_score_text()
         return scores
 
     def get_credit_details(self):
@@ -57,7 +57,7 @@ class Application(object):
                 credit_reporting_agency_name)
             credit_details[credit_reporting_agency_name.capitalize()] = {}
             for factor_tile_index in range(0, 5):
-                factor_tile_detail = internal_page.factor_tile_detail(
+                factor_tile_detail = internal_page.get_factor_tile_details(
                     factor_tile_index)
                 credit_details[credit_reporting_agency_name.capitalize(
                 )][factor_tile_detail['name']] = factor_tile_detail['value']
@@ -65,7 +65,7 @@ class Application(object):
 
     def logout(self):
         internal_page = InternalPage(self.driver, self.wait, self.BASE_URL)
-        internal_page.logout_link()
+        internal_page.logout()
         # ip.accept_alert_if_present()
 
     # def ensure_is_not_logged_in(self):
