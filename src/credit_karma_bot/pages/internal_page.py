@@ -1,15 +1,12 @@
 import sys
 
+from credit_karma_bot.locators import InternalPageLocators, LoginPageLocators
+from credit_karma_bot.pages.page import BasePage
+from selenium.common.exceptions import (NoAlertPresentException,
+                                        NoSuchElementException,
+                                        TimeoutException, WebDriverException)
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import NoSuchElementException
-from selenium.common.exceptions import TimeoutException
-from selenium.common.exceptions import NoAlertPresentException
-from selenium.common.exceptions import WebDriverException
-
-from credit_karma_bot.locators import LoginPageLocators
-from credit_karma_bot.locators import InternalPageLocators
-from credit_karma_bot.pages.page import BasePage
 
 
 class InternalPage(BasePage):
@@ -51,6 +48,7 @@ class InternalPage(BasePage):
 
     def get_factor_tile(self, index):
         # TODO: Break this out and represent it in OOP form in element.py
+        # https://github.com/jdi-testing/jdi-python/tree/master/JDI/web/selenium/elements/base
         factor_tile = self.fetch_elements(
             InternalPageLocators.factor_tiles)[index]
         return factor_tile
