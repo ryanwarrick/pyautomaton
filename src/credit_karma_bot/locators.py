@@ -9,7 +9,7 @@ class LoginPageLocators:
 
 
 class InternalPageLocators:
-    internal_page_identifier = (By.ID, 'top-nav')
+    internal_page_identifier = (By.CLASS_NAME, 'navi-bar')
     score_text = (
         By.XPATH,
         '//*[@id = "__render-farm"]//*[@class = "credit-health"]/div[1]//*[@class = "section-content"]/div[1]/div[1]/div[1]/div[1]//*[name() = "svg"]/*[name() = "text"][position() = (last() - 1)]'
