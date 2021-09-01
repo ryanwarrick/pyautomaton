@@ -1,18 +1,18 @@
 # from selenium.webdriver import ActionChains
-import time
 import sys
+import time
 
+import keyring
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.expected_conditions import *
 from selenium.webdriver.support.ui import WebDriverWait
-import keyring
-from credit_karma_bot.pages import internal_page
 
-from credit_karma_bot.pages.login_page import LoginPage
+from credit_karma_bot.pages import internal_page
 from credit_karma_bot.pages.internal_page import InternalPage
+from credit_karma_bot.pages.login_page import LoginPage
 
 
 class Application(object):
@@ -37,7 +37,7 @@ class Application(object):
         login_page.password_field().send_keys(password)
         login_page.submit_button().click()
         # Wait for a redirect to avoid prog flow issues
-        self.wait.until(EC.url_to_be("https://www.creditkarma.com/today"))
+        self.wait.until(EC.url_to_be("https://www.creditkarma.com/dashboard"))
 
     def get_credit_scores(self):
         internal_page = InternalPage(self.driver, self.wait, self.BASE_URL)
