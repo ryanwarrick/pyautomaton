@@ -16,8 +16,15 @@
             // Passing config & function specific args
             "args": [
                 "-k",
-                "ryanwarrick1@gmail.com"
+                "${input:CreditKarmaUsername}"
             ]
+        }
+    ],
+    "inputs": [
+        {
+            "id": "CreditKarmaUsername",
+            "description": "Provide Credit Karma username (email address)",
+            "type": "promptString"
         }
     ]
 }
