@@ -4,7 +4,7 @@
 
 
 # Summary
-PyAutomaton is a sort of playground to gain experience with Python Selenium. Currently, this is not a complete project, rather just scratch work with aspirations to be something greater.
+PyAutomaton is a sort of playground to gain experience with Python Selenium. Currently, this is not a complete project, rather just scratch-work with aspirations to be something greater.
 
 ## Motivation
 Despite advancements in modern computing, many computer tasks today are still quite repetitive, especially in IT. Considering the need to automate these repetitive tasks, I'm learning Selenium with the ultimate goal of increasing the efficiency of my BPA development work.
